@@ -24,11 +24,11 @@ export const ContactsPage = ({contacts, addContacts}) => {
     }
   };
 
-  useEffect(() => {
-    contacts.find((contact) => contact.name === name)
-      ? setIsAdded(true)
-      : setIsAdded(false);
-  }, [name, contacts]);
+  // useEffect(() => {
+  //   Array.from(contacts).find((contact) => contact.name === name)
+  //     ? setIsAdded(true)
+  //     : setIsAdded(false);
+  // }, [name, contacts]);
 
   return (
     <div>
