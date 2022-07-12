@@ -14,8 +14,8 @@ export const ContactForm = ({
     <>
     <form onSubmit={handleSubmit}>
     <input type="text"></input>
-    <input type="text"></input>
-    <input type="text"></input>
+    <input type="tel"></input>
+    <input type="email"></input>
 
 
     </form>
