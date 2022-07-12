@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AppointmentForm } from "../../components/appointmentForm/AppointmentForm";
 import { ContactForm } from "../../components/contactForm/ContactForm";
+import { TileList } from "../../components/tileList/TileList";
 
 export const ContactsPage = ({contacts, addContacts}) => {
   /*
@@ -33,6 +34,11 @@ export const ContactsPage = ({contacts, addContacts}) => {
   Using hooks, check for contact name in the 
   contacts array variable in props
   */
+  // useEffect(() => {
+  //   contacts.find((contact) => contact.name === name)
+  //     ? setIsAdded(true)
+  //     : setIsAdded(false);
+  // }, [name, contacts]);
 
   return (
     <div>
@@ -40,14 +46,19 @@ export const ContactsPage = ({contacts, addContacts}) => {
         <h2>Add Contact</h2> 
         <ContactForm 
         name={name}
+        setName={setName}
         phone={phone}
+        setPhone={setPhone}
         email={email}
+        setEmail={setEmail}
+        handleSubmit={handleSubmit}
       />
       </section>
       
       <hr />
       <section>
         <h2>Contacts</h2>
+        <TileList data={contacts} />
       </section>
     </div>
   );

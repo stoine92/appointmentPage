@@ -7,9 +7,20 @@ export const ContactForm = ({
   setPhone,
   email,
   setEmail,
-  handleSubmit
+  handleSubmit,
+  
 }) => {
   return (
-    ContactForm
+    <>
+    <form onSubmit={handleSubmit}>
+    <input type="text"></input>
+    <input type="text"></input>
+    <input type="text"></input>
+
+
+    </form>
+    {ContactForm}
+    </>
+    
   );
 };
