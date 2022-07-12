@@ -22,25 +22,32 @@ export const AppointmentForm = ({
 
   return (
     <>
-     <AppointmentForm />
+     
      <form onSubmit={handleSubmit}>
         <input 
         type='text' 
-        placeholder="Title"
+        placeholder="Appointment title"
         value={title}
+        onChange={(e) => setTitle(e.target.value)}
         ></input>
+
+        <ContactPicker />
+
         <input 
         type="date" 
         value={date}
-        placeholder="Date"
+        onChange={(e) => setDate(e.target.value)}
+        placeholder="Appointment date"
         
         ></input>
+
         <input 
         type="time"
         value={time}
-        placeholder="Time"
+        onChange={(e) => setTime([e.target.value])}
+        placeholder="Appointment time"
         ></input>
-        <ContactPicker />
+        
         <button>Submit</button>
 
      </form>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { AppointmentForm } from "../../components/appointmentForm/AppointmentForm";
 import { ContactForm } from "../../components/contactForm/ContactForm";
 import { TileList } from "../../components/tileList/TileList";
 
@@ -20,8 +19,9 @@ export const ContactsPage = ({contacts, addContacts}) => {
       setName("");
       setPhone("");
       setEmail("");
+    }else{
+      alert('Name has been taken')
     }
-   
   };
 
   useEffect(() => {
