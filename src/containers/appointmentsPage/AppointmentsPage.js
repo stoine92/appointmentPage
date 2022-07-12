@@ -9,19 +9,33 @@ export const AppointmentsPage = ({contacts, appointments, addAppointments}) => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
-  const test = (e) =>{
-    console.log(contacts);
-  }
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    addAppointments(title, contact, date, time);
+    setTitle("");
+    setContact("");
+    setDate("");
+    setTime("");
   };
 
   return (
     <div>
       <section>
         <h2>Add Appointment</h2>
-        
+        <AppointmentForm 
+          title={title}
+          setTitle={setTitle}
+          contact={contact}
+          setContact={setContact}
+          date={date}
+          setDate={setDate}
+          time={time}
+          setTime={setTime}
+          handleSubmit={handleSubmit}
+        />
       </section>
       <hr />
       <section>

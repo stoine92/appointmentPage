@@ -4,10 +4,7 @@ import { ContactForm } from "../../components/contactForm/ContactForm";
 import { TileList } from "../../components/tileList/TileList";
 
 export const ContactsPage = ({contacts, addContacts}) => {
-  /*
-  Define state variables for 
-  contact info and duplicate check
- */  
+ 
 
  const [name, setName] = useState("");
  const [phone, setPhone] = useState("");
@@ -17,10 +14,7 @@ export const ContactsPage = ({contacts, addContacts}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    /*
-    Add contact info and clear data
-    if the contact name is not a duplicate
-    */
+
     if(!isAdded) {
       addContacts(name, phone, email);
       setName("");
@@ -30,15 +24,11 @@ export const ContactsPage = ({contacts, addContacts}) => {
    
   };
 
-  /*
-  Using hooks, check for contact name in the 
-  contacts array variable in props
-  */
-  // useEffect(() => {
-  //   contacts.find((contact) => contact.name === name)
-  //     ? setIsAdded(true)
-  //     : setIsAdded(false);
-  // }, [name, contacts]);
+  useEffect(() => {
+    contacts.find((contact) => contact.name === name)
+      ? setIsAdded(true)
+      : setIsAdded(false);
+  }, [name, contacts]);
 
   return (
     <div>
