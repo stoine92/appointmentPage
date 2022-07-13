@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types';
+
 
 export const ContactForm = ({
   name,
@@ -10,35 +12,61 @@ export const ContactForm = ({
   handleSubmit,
   
 }) => {
+
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handlePhone = (e) => {
+    setPhone(e.target.value);
+  };
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
   return (
    
     <form onSubmit={handleSubmit}>
+
     <input type="text"
     value={name}
-    onChange={(e) => setName(e.target.value)}
+    onChange={handleName}
     placeholder="Name"
-    required
-    ></input>
+    
+    />
 
     <input 
     type="tel"
     value={phone}
-    onChange={(e) => setPhone(e.target.value)}
+    onChange={handlePhone}
     pattern="((\+44(\s\(0\)\s|\s0\s|\s)?)|0)7\d{3}(\s)?\d{6}"
     placeholder="Telephone number"
-    required
-    ></input>
+    
+    />
 
     <input 
     type="email"
     value={email}
-    onChange={(e) => setEmail(e.target.value)}
+    onChange={handleEmail}
     placeholder='Email address'
-    required
-    ></input>
+    
+    />
 
     <input type="submit" value="Submit"></input>
     </form>
     
   );
 };
+
+
+ContactForm.propTypes = {
+  name: PropTypes.string,
+  setName: PropTypes.func,
+  phone: PropTypes.string,
+  setPhone: PropTypes.func,
+  email: PropTypes.string,
+  setEmail: PropTypes.func,
+  handleSubmit: PropTypes.func,
+};
+
+
