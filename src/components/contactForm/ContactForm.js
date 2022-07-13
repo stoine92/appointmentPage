@@ -11,7 +11,7 @@ export const ContactForm = ({
   
 }) => {
   return (
-    <>
+   
     <form onSubmit={handleSubmit}>
     <input type="text"
     value={name}
@@ -37,10 +37,8 @@ export const ContactForm = ({
     required
     ></input>
 
-    <button>Submit</button>
+    <input type="submit" value="Submit"></input>
     </form>
-    
-    </>
     
   );
 };

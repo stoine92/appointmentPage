@@ -5,7 +5,7 @@ import { TileList } from "../../components/tileList/TileList";
 export const ContactsPage = ({contacts, addContacts}) => {
  
 
- const [name, setName] = useState("");
+ const [currName, setCurrName] = useState("");
  const [phone, setPhone] = useState("");
  const [email, setEmail] = useState("");
  const [isAdded, setIsAdded] = useState(false);
@@ -15,8 +15,8 @@ export const ContactsPage = ({contacts, addContacts}) => {
     e.preventDefault();
 
     if(!isAdded) {
-      addContacts(name, phone, email);
-      setName("");
+      addContacts(currName, phone, email);
+      setCurrName("");
       setPhone("");
       setEmail("");
     }else{
@@ -24,19 +24,22 @@ export const ContactsPage = ({contacts, addContacts}) => {
     }
   };
 
-  // useEffect(() => {
-  //   Array.from(contacts).find((contact) => contact.name === name)
-  //     ? setIsAdded(true)
-  //     : setIsAdded(false);
-  // }, [name, contacts]);
+  useEffect(() => {
+    if(contacts){
+      contacts.find((contact) => contact.currName === currName)
+      ? setIsAdded(true)
+      : setIsAdded(false);
+    }
+    
+  }, [contacts, currName]);
 
   return (
     <div>
       <section>
         <h2>Add Contact</h2> 
         <ContactForm 
-        name={name}
-        setName={setName}
+        name={currName}
+        setName={setCurrName}
         phone={phone}
         setPhone={setPhone}
         email={email}
